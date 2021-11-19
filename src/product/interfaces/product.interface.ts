@@ -1,6 +1,6 @@
-export interface IProduct extends Document{
+export interface IProduct {
     
-    readonly product_id?: number,
+    readonly product_id?: number;
     readonly name: string;
     readonly category: string;
     readonly unitPrice: number;
