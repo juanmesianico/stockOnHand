@@ -5,6 +5,9 @@ import { UserDTO } from "src/user/dto/user.dto";
 import { AuthService } from "./auth.service";
 import { IJwtPayload } from "./interfaces/jwt_payload.interface";
 
+import * as dotenv from "dotenv";
+dotenv.config(); 
+
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy){
 

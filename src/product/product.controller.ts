@@ -1,8 +1,10 @@
-import { Body, ConflictException, Controller, Delete, Get, HttpStatus, NotFoundException, Param, Post, Put, Res } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, HttpStatus, NotFoundException, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateProductDTO } from './dto/CreateProductDTO';
 import { ProductService } from './product.service';
 
 @Controller('product')
+@UseGuards(AuthGuard())
 export class ProductController {
 
     constructor(private readonly productService: ProductService){}
