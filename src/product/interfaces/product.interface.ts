@@ -5,5 +5,6 @@ export interface IProduct {
     readonly category: string;
     readonly unitPrice: number;
     readonly quantity: number;
+    readonly photoURL: string;
     readonly createdAt: Date;
 }

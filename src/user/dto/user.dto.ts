@@ -1,4 +1,5 @@
 import { IsEmail, IsNotEmpty } from "class-validator";
+import { Role } from "../entities/user.enum";
 
 export class UserDTO{
 
@@ -7,4 +8,5 @@ export class UserDTO{
     @IsNotEmpty() @IsEmail() readonly email: string;
     readonly updatedAt: Date; 
     readonly active: boolean;
+    readonly role: Role;
 }

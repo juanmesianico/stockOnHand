@@ -14,8 +14,8 @@ export class UserService {
 
     UserEntityToUserDTO(userEntity: UserEntity): UserDTO{
 
-        const { id, username, email, updatedAt, active } = userEntity;
-        let user: UserDTO = { id, username, email, updatedAt, active };
+        const { id, username, email, updatedAt, active, role } = userEntity;
+        let user: UserDTO = { id, username, email, updatedAt, active, role };
         return user;
     }
     
