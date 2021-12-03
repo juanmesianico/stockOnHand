@@ -1,0 +1,16 @@
+<br>
+<div class="row">
+    <div class="col-4" *ngFor="let item of productList">
+        <br>
+        <div class="card" style="width: 14rem">
+            <img src="{{ item.photoURL }}" class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }} - {{ item.category }}</h5>
+                <p class="card-text">{{ item.product_id }} - {{ item.unitPrice }} - {{ item.quantity }}</p>
+                <p class="card-text">{{ item.createdAt }}</p>
+                <a (click)="deleteProduct(item.product_id!)" class="btn btn-danger">Delete</a>
+                <a [routerLink]="['/product/edit/', item.product_id!]" routerLinkActive="router-link-active" class="btn btn-info">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
