@@ -24,14 +24,15 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean{
-    return false;
+    return !!localStorage.getItem('accessToken');
   }
 
   logOut(): void{
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
-  getToken(): string{
-    return '';
+  getToken(){
+    return localStorage.getItem('accessToken');
   }
 }
