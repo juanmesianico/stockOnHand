@@ -16,11 +16,11 @@ export class AuthService {
   constructor(private readonly httpClient: HttpClient, private readonly router: Router) { }
 
   login(user: IUser): Observable<ILoginStatus>{
-    return this.httpClient.post<ILoginStatus>(`${this.API_URL}auth/login`, user);
+    return this.httpClient.post<ILoginStatus>(`${this.API_URL}/auth/login`, user);
   }
 
   register(user: IUser): Observable<IRegistrationStatus>{
-    return this.httpClient.post<IRegistrationStatus>(`${this.API_URL}auth/register`, user);
+    return this.httpClient.post<IRegistrationStatus>(`${this.API_URL}/auth/register`, user);
   }
 
   isLoggedIn(): boolean{

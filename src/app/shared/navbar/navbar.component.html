@@ -17,8 +17,20 @@
                     <a class="nav-link" aria-current="page" [routerLink]="['/product/create']" routerLinkActive="active" >Create product</a>
                 </li>
             </ul>
-            <span class="navbar-text">
-                Welcome to admin
+            <span class="navbar-text d-none d-lg-block">
+            <ul class="navbar-nav ml-auto">
+                <ng-container *ngIf="!authService.isLoggedIn(), else loggedIn">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Sign Up</a>
+                    </li>
+                </ng-container>
+                <ng-template #loggedIn>
+                    <a class="nav-link" (click)="authService.logOut()"></a>
+                </ng-template>
+            </ul>
             </span>
         </div>
     </div>
