@@ -43,9 +43,11 @@ export class AuthService {
 
         let token: ILoginStatus = {
             
+            id: user.id,
             username: user.username,
+            role: user.role,
             expireIn,
-            accessToken
+            accessToken,
         };
         return token;
     }
