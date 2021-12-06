@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../product.interface';
 
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  API_URL: string = 'http://localhost:3000';
+  API_URL: string = environment.apiURL;
 
   constructor(private readonly httpClient: HttpClient) { }
 
