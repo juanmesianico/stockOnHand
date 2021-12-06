@@ -9,11 +9,12 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './shared/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthInterceptor } from './auth/guards/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { AuthGuard } from './auth/guards/auth.guard';
     HttpClientModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

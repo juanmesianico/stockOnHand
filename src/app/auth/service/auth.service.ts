@@ -23,6 +23,10 @@ export class AuthService {
     return this.httpClient.post<IRegistrationStatus>(`${this.API_URL}/auth/register`, user);
   }
 
+  whoAmI(): Observable<IUser>{
+    return this.httpClient.get<IUser>(`${this.API_URL}/auth/whoami`);
+  }
+
   isLoggedIn(): boolean{
     return !!localStorage.getItem('accessToken');
   }
